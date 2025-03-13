@@ -188,3 +188,7 @@ WAGTAILDOCS_EXTENSIONS = [
     "xlsx",
     "zip",
 ]
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL = "thierry@example.com"
+EMAIL_SUBJECT_PREFIX = "[Example] "
