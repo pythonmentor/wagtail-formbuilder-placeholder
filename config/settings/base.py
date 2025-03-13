@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
+    "crispy_tailwind",
 ]
 
 MIDDLEWARE = [
@@ -189,6 +191,11 @@ WAGTAILDOCS_EXTENSIONS = [
     "zip",
 ]
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEFAULT_FROM_EMAIL = "thierry@example.com"
 EMAIL_SUBJECT_PREFIX = "[Example] "
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"

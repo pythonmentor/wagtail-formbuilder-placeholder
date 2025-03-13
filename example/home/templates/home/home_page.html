@@ -1,21 +1,16 @@
 {% extends "base.html" %}
-{% load static %}
-
-{% block body_class %}template-homepage{% endblock %}
-
-{% block extra_css %}
-
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
-{% endblock extra_css %}
+{% load wagtailcore_tags tailwind_filters %}
 
 {% block content %}
+<div class="container mx-auto">
+    <h1 class="text-4xl font-bold">{{ page.title }}</h1>
+    <div class="mt-4">{{ page.intro|richtext }}</div>
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-{% include 'home/welcome_page.html' %}
+    <form class="mt-4" action="{% pageurl page %}" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="bg-black p-3 rounded-lg text-white">Envoyer</button>
+    </form>
+</div>
 
 {% endblock content %}
